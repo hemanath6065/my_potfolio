@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Container(key: _homeKey, child: const HeroSection()),
+                  Container(key: _homeKey, child:  HeroSection(projectsKey: _projectsKey )),
                   Container(key: _aboutKey, child: const AboutSection()),
                   Container(key: _skillsKey, child: const SkillsSection()),
                   Container(key: _projectsKey, child: const ProjectsSection()),

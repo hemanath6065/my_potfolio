@@ -1,3 +1,7 @@
+
+
+
+
 import 'package:flutter/material.dart';
 import '../../widgets/project_card.dart';
 
@@ -9,6 +13,7 @@ class ProjectsSection extends StatelessWidget {
     final isDesktop = MediaQuery.of(context).size.width > 900;
 
     return Container(
+
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 80),
       child: Column(
@@ -41,38 +46,53 @@ class ProjectsSection extends StatelessWidget {
         ProjectCard(
           title: 'Quantum-Resistant Encryption System',
           description:
-          'Designed a dual-layer encryption system using classical and post-quantum techniques.',
+          'Final year project focused on post-quantum secure data protection.',
           techStack: ['Java', 'RSA', 'Lattice Crypto', 'Merkle Tree'],
           highlights: [
-            'Implemented dual-layer encryption',
-            'Integrated Merkle Tree for integrity',
-            'Focused on post-quantum security',
+            'Dual-layer encryption architecture',
+            'Merkle Tree based integrity verification',
+            'Post-quantum security research',
           ],
-          githubUrl: 'https://github.com/your-github-link',
+          githubUrl:
+          'https://github.com/hemanath6065/Quantum-Resistant-Encryption-System.git',
+          isFinalYear: true,
         ),
         ProjectCard(
           title: 'Dual-Layer Database Encryption',
           description:
-          'Built a secure database encryption mechanism for sensitive user data.',
+          'Secure database encryption mechanism for sensitive user data.',
           techStack: ['Java', 'AES', 'RSA', 'MySQL'],
           highlights: [
+            'Hybrid AES + RSA approach',
             'Encrypted data at rest',
-            'Hybrid AES + RSA design',
-            'Improved data confidentiality',
+            'Improved confidentiality',
           ],
-          githubUrl: 'https://github.com/your-github-link',
+          githubUrl:
+          'https://github.com/hemanath6065/dual_layer_encryption_by_AES_and_RSA.git',
         ),
         ProjectCard(
           title: 'Flutter Portfolio Website',
           description:
-          'Responsive portfolio built with Flutter for web and mobile.',
+          'Responsive portfolio built using Flutter for web and mobile.',
           techStack: ['Flutter', 'Responsive UI'],
           highlights: [
-            'Single codebase for web & mobile',
-            'Smooth animations & clean UX',
+            'Single codebase',
+            'Clean animations',
             'Modular architecture',
           ],
-          githubUrl: 'https://github.com/your-github-link',
+          githubUrl: 'https://github.com/hemanath6065/my_potfolio.git',
+        ),
+        ProjectCard(
+          title: 'Practice Projects',
+          description:
+          'Collection of hands-on mini projects to strengthen fundamentals.',
+          techStack: ['Flutter', 'REST API', 'UI Design'],
+          highlights: [
+            'Weather Application',
+            'Shopping App',
+            'YouTube Clone UI',
+          ],
+          githubUrl: 'https://github.com/hemanath6065',
         ),
       ],
     );
@@ -84,40 +104,56 @@ class ProjectsSection extends StatelessWidget {
         ProjectCard(
           title: 'Quantum-Resistant Encryption System',
           description:
-          'Designed a dual-layer encryption system using classical and post-quantum techniques.',
+          'Final year project focused on post-quantum secure data protection.',
           techStack: ['Java', 'RSA', 'Lattice Crypto', 'Merkle Tree'],
           highlights: [
             'Dual-layer encryption',
             'Merkle Tree integrity',
-            'Post-quantum focus',
+            'Post-quantum research',
           ],
-          githubUrl: 'https://github.com/your-github-link',
+          githubUrl:
+          'https://github.com/hemanath6065/Quantum-Resistant-Encryption-System.git',
+          isFinalYear: true,
         ),
         SizedBox(height: 20),
         ProjectCard(
           title: 'Dual-Layer Database Encryption',
           description:
-          'Built a secure database encryption mechanism for sensitive user data.',
+          'Secure database encryption mechanism for sensitive data.',
           techStack: ['Java', 'AES', 'RSA', 'MySQL'],
           highlights: [
-            'Hybrid AES + RSA',
-            'Encrypted data at rest',
+            'Hybrid encryption',
+            'Encrypted storage',
             'Secure design',
           ],
-          githubUrl: 'https://github.com/your-github-link',
+          githubUrl:
+          'https://github.com/hemanath6065/dual_layer_encryption_by_AES_and_RSA.git',
         ),
         SizedBox(height: 20),
         ProjectCard(
           title: 'Flutter Portfolio Website',
           description:
-          'Responsive portfolio built with Flutter for web and mobile.',
+          'Responsive portfolio built using Flutter.',
           techStack: ['Flutter', 'Responsive UI'],
           highlights: [
-            'Single codebase',
-            'Clean UX',
+            'Clean UI',
             'Responsive layout',
+            'Single codebase',
           ],
           githubUrl: 'https://github.com/hemanath6065/my_potfolio.git',
+        ),
+        SizedBox(height: 20),
+        ProjectCard(
+          title: 'Practice Projects',
+          description:
+          'Hands-on mini projects for skill enhancement.',
+          techStack: ['Flutter', 'REST API'],
+          highlights: [
+            'Weather App',
+            'Shopping App',
+            'YouTube Clone',
+          ],
+          githubUrl: 'https://github.com/hemanath6065',
         ),
       ],
     );

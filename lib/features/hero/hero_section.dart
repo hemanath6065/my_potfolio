@@ -1,14 +1,15 @@
 import 'package:universal_html/html.dart' as html;
 
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:universal_html/js.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/utils/resume_downloader.dart';
 import '../../widgets/profile_photo.dart';
 
 class HeroSection extends StatelessWidget {
-  const HeroSection({super.key});
+  final GlobalKey projectsKey;
+  const HeroSection({super.key, required this.projectsKey});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +18,11 @@ class HeroSection extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       padding: const EdgeInsets.symmetric(horizontal: 24),
-      child: isDesktop ? _desktopLayout() : _mobileLayout(),
+      child: isDesktop ? _desktopLayout(context) : _mobileLayout(context),
     );
   }
 
-  Widget _mobileLayout() {
+  Widget _mobileLayout(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,13 +33,12 @@ class HeroSection extends StatelessWidget {
         const SizedBox(height: 12),
         _animatedRoles(),
         const SizedBox(height: 24),
-        _buttons(),
+        _buttons(context),
       ],
-
     );
   }
 
-  Widget _desktopLayout() {
+  Widget _desktopLayout(BuildContext context) {
     return Row(
       children: [
         Expanded(
@@ -50,30 +50,21 @@ class HeroSection extends StatelessWidget {
               const SizedBox(height: 16),
               _animatedRoles(),
               const SizedBox(height: 32),
-              _buttons(),
+              _buttons(context),
             ],
           ),
         ),
-        const Expanded(
-          child: Center(
-            child: ProfilePhoto(size: 350),
-          ),
-        ),
-
+        const Expanded(child: Center(child: ProfilePhoto(size: 350))),
       ],
     );
   }
-
 
   Widget _animatedName() {
     return AnimatedTextKit(
       animatedTexts: [
         TypewriterAnimatedText(
           'Hi, I’m Hemanath Ponnusamy',
-          textStyle: const TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-          ),
+          textStyle: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           speed: const Duration(milliseconds: 80),
         ),
       ],
@@ -92,56 +83,87 @@ class HeroSection extends StatelessWidget {
           TypewriterAnimatedText(
             'Flutter Developer',
             speed: const Duration(milliseconds: 70),
-            textStyle: TextStyle(
-              fontSize: 18,
-              color: AppColors.textSecondary,
-            ),
+            textStyle: TextStyle(fontSize: 18, color: AppColors.textSecondary),
           ),
           TypewriterAnimatedText(
             'Full Stack App Developer',
             speed: const Duration(milliseconds: 70),
-            textStyle: TextStyle(
-              fontSize: 18,
-              color: AppColors.textSecondary,
-            ),
+            textStyle: TextStyle(fontSize: 18, color: AppColors.textSecondary),
           ),
           TypewriterAnimatedText(
             'Java Backend Developer (Spring Boot)',
             speed: const Duration(milliseconds: 70),
-            textStyle: TextStyle(
-              fontSize: 18,
-              color: AppColors.textSecondary,
-            ),
+            textStyle: TextStyle(fontSize: 18, color: AppColors.textSecondary),
           ),
           TypewriterAnimatedText(
             'Technology Enthusiast',
             speed: const Duration(milliseconds: 70),
-            textStyle: TextStyle(
-              fontSize: 18,
-              color: AppColors.textSecondary,
-            ),
+            textStyle: TextStyle(fontSize: 18, color: AppColors.textSecondary),
           ),
         ],
       ),
     );
   }
 
-  Widget _buttons() {
+  // Widget _buttons() {
+  //   return Row(
+  //     children: [
+  //       ElevatedButton(
+  //         onPressed: () {},
+  //         style: ElevatedButton.styleFrom(
+  //           backgroundColor: AppColors.primary,
+  //           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+  //         ),
+  //         child: const Text('View Projects', style: TextStyle(color: Colors.white)),
+  //       ),
+  //       const SizedBox(width: 16),
+  //       OutlinedButton(
+  //         onPressed: () {
+  //           html.window.open(
+  //             'assets/resume/Hemanath_Resume.pdf',
+  //             '_blank',
+  //           );
+  //         },
+  //         style: OutlinedButton.styleFrom(
+  //           foregroundColor: AppColors.primary,
+  //           side: const BorderSide(color: AppColors.primary),
+  //           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+  //         ),
+  //         child: const Text('View Resume'),
+  //       ),
+  //
+  //
+  //     ],
+  //   );
+  // }
+  Widget _buttons(BuildContext context) {
     return Row(
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            final context = projectsKey.currentContext;
+            if (context != null) {
+              Scrollable.ensureVisible(
+                context,
+                duration: const Duration(milliseconds: 700),
+                curve: Curves.easeInOutCubic,
+              );
+            }
+          },
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           ),
-          child: const Text('View Projects', style: TextStyle(color: Colors.white)),
+          child: const Text(
+            'View Projects',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         const SizedBox(width: 16),
         OutlinedButton(
           onPressed: () {
             html.window.open(
-              'assets/resume/Hemanath_Resume.pdf',
+              'https://drive.google.com/file/d/1AWP0pqRbTfPLuWVvbkh8WUyGXNjI3is_/view?usp=sharing',
               '_blank',
             );
           },
@@ -152,8 +174,6 @@ class HeroSection extends StatelessWidget {
           ),
           child: const Text('View Resume'),
         ),
-
-
       ],
     );
   }

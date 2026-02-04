@@ -29,10 +29,11 @@ class SkillsSection extends StatelessWidget {
               alignment: WrapAlignment.start,
               children: const [
                 SkillCard(
-                  title: 'Languages',
+                  title: 'Languages & Web Technologies',
                   icon: Icons.code,
-                  skills: ['Java', 'Dart', 'SQL'],
-                  proficiency: 'Strong foundation with hands-on coding and problem solving.',
+                  skills: ['Java', 'Dart', 'HTML', 'CSS', 'JavaScript'],
+                  proficiency:
+                      'Strong foundation with hands-on coding and problem solving.',
                 ),
                 SkillCard(
                   title: 'Problem Solving',
@@ -46,49 +47,53 @@ class SkillsSection extends StatelessWidget {
                     'Binary Search',
                   ],
                   proficiency:
-                  'Strong fundamentals with consistent practice in solving real interview-style problems.',
+                      'Strong fundamentals with consistent practice in solving real interview-style problems.',
                 ),
 
                 SkillCard(
                   title: 'Frameworks',
                   icon: Icons.widgets,
                   skills: ['Flutter', 'Spring Boot'],
-                  proficiency: 'Experience building responsive UI and backend services.',
+                  proficiency:
+                      'Experience building responsive UI and backend services.',
                 ),
                 SkillCard(
                   title: 'State Management',
                   icon: Icons.sync,
-                  skills: ['Provider','Riverpod'],
+                  skills: ['Provider', 'Riverpod'],
                   proficiency:
-                  'Experience with Provider, StateNotifier, AsyncValue, and clean state separation.',
+                      'Experience with Provider, StateNotifier, AsyncValue, and clean state separation.',
                 ),
 
                 SkillCard(
                   title: 'Backend & DB',
                   icon: Icons.storage,
                   skills: ['REST APIs', 'Firebase', 'MySQL'],
-                  proficiency: 'Comfortable designing APIs and working with databases.',
+                  proficiency:
+                      'Comfortable designing APIs and working with databases.',
                 ),
                 SkillCard(
                   title: 'Software Architecture',
                   icon: Icons.account_tree,
-                  skills: ['MVVM', 'MVC','CLEAN'],
+                  skills: ['MVVM', 'MVC', 'CLEAN'],
                   proficiency:
-                  'Applied clean architectural patterns to improve maintainability and scalability.',
+                      'Applied clean architectural patterns to improve maintainability and scalability.',
                 ),
 
                 SkillCard(
                   title: 'Tools',
                   icon: Icons.build,
                   skills: ['Git', 'GitHub', 'Android Studio', 'VS Code'],
-                  proficiency: 'Daily usage for development, debugging, and version control.',
+                  proficiency:
+                      'Daily usage for development, debugging, and version control.',
                 ),
                 SkillCard(
                   title: 'Security',
                   icon: Icons.security,
                   skills: ['Network Security', 'Cryptography'],
 
-                  proficiency: 'Hands-on experience with encryption and secure system design.',
+                  proficiency:
+                      'Hands-on experience with encryption and secure system design.',
                 ),
               ],
             ),
